@@ -1,0 +1,31 @@
+> cypress@3.2.0 postinstall J:\Document\Work\Projects\Portfolio\vue_video_footage_element_ui\node_modules\cypress
+> node index.js --exec install
+
+Installing Cypress (version: 3.2.0)
+
+ v  Downloaded Cypress
+ v  Unzipped Cypress
+ v  Finished Installation H:\Users\Ivan\AppData\Local\Cypress\Cache\3.2.0
+
+You can now open Cypress by running: node_modules\.bin\cypress open
+
+https://on.cypress.io/installing-cypress
+
+added 1154 packages from 664 contributors and audited 27667 packages in 885.04s
+found 0 vulnerabilities
+
+?  Invoking generators...
+?  Installing additional dependencies...
+
+added 9 packages from 3 contributors and audited 27678 packages in 38.488s
+found 0 vulnerabilities
+
+?  Running completion hooks...
+
+?  Generating README.md...
+
+?  Successfully created project vue_video_footage_element_ui.
+?  Get started with the following commands:
+
+ $ cd vue_video_footage_element_ui
+ $ npm run serve
