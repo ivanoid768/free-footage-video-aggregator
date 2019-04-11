@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="main_cntr">
-      <div class="header"></div>
+      <div class="header">
+				<Header/>
+			</div>
       <div class="content">
         <router-view />
       </div>
@@ -9,6 +11,19 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Header from '@/components/Header.vue';
+
+@Component({
+  components: {
+    Header,
+  },
+})
+export default class App extends Vue {}
+</script>
+
 
 <style scoped>
 #app {
