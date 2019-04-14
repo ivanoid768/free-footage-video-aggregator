@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Footage API playground</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="index.js"></script>
+	<script src="getFootageList.js"></script>
+</head>
+
+<body>
+	<style>
+		body {
+			margin: 0px;
+		}
+
+		.list-cntr {
+			min-height: 98vh;
+			width: 100%;
+		}
+
+		.list-item {
+			height: 30vw;
+			width: 35vw;
+			display: inline-block;
+		}
+	</style>
+	<div class="list-cntr">
+		<div class="list-item">
+			<video muted loop autoplay preload="metadata" class="list-item" id="video01" src=""></video>
+		</div>
+	</div>
+</body>
+
+</html>
