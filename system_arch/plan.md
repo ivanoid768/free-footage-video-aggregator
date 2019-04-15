@@ -4,6 +4,8 @@
 2.2 Navigation Component - 2 h
 3. Создать Footer Component - 1 h
 4. 1 source Pixabay? API interface - 
+4.1 Pixabay API playground - 1 h
+4.2 Pixabay FootageList request - 1 h
 5. 2 source Pexels? API interface
 6. FootageListItem Component
 7. FootageList Component
