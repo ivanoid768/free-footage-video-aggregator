@@ -1,13 +1,13 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosPromise, AxiosResponse } from 'axios';
 
 interface SourceAxiosInstance extends AxiosInstance {
-	name: string;
+	source_name: string;
 }
 
-function fromPixabay() {
+function fromPixabay(): SourceAxiosInstance {
 	const access_key = '11215352-991ab9a42a02be2db12b85705';
 
-	const axi: SourceAxiosInstance = axios.create({
+	let axi: any = axios.create({
 		baseURL: 'https://pixabay.com/api/videos/',
 		// baseURL: 'http://localhost:5000/pixabay_tourist_attraction.json',
 		params: {
@@ -17,15 +17,14 @@ function fromPixabay() {
 		}
 	})
 
-	axi.name = 'pixabay'
+	axi.source_name = 'pixabay'
 
 	return axi;
 }
 
-function fromPexels() {
+function fromPexels(): SourceAxiosInstance {
 	const access_key = '563492ad6f9170000100000187d04447c7094a5c96e0dfd7119b3e7a';
-
-	const axi: SourceAxiosInstance = axios.create({
+	let axi: any = axios.create({
 		baseURL: 'https://api.pexels.com/videos/search',
 		// baseURL: 'http://localhost:5000/pixabay_tourist_attraction.json',
 		params: {
@@ -38,7 +37,7 @@ function fromPexels() {
 		}
 	})
 
-	axi.name = 'pexels'
+	axi.source_name = 'pexels'
 
 	return axi;
 }
@@ -64,11 +63,11 @@ function getPixabayFootages(page = 1, per_page = 20, query = '') {
 	return axi.request({
 		params: params
 	}).then((resp: AxiosResponse<any>): SourceFootageResponse => {
-		console.log(axi.name, resp.data.hits[0].videos.tiny.url)
+		console.log(axi.source_name, resp.data.hits[0].videos.tiny.url)
 		// let name = hit.tags.replace(/,/ig,' ')
 		// name = name.charAt(0).toUpperCase() + name.slice(1)
 		return {
-			name: axi.name,
+			name: axi.source_name,
 			footages: resp.data.hits,
 			total: resp.data.total
 		}
@@ -97,7 +96,7 @@ function getPexelsFootages(page = 1, per_page = 20, query = '') {
 		// let name = video.url.match(/((?:(?![/])[\S])+)-\d+$/i)[1].replace(/-/ig, ' ');
 		// name = name.charAt(0).toUpperCase() + name.slice(1)
 		return {
-			name: axi.name,
+			name: axi.source_name,
 			footages: resp.data.videos,
 			total: resp.data.total_results
 		};
@@ -110,7 +109,9 @@ interface FootageListItem {
 	name: string
 }
 
-function getFootages(page: number = 1, per_page: number = 20, query: string = ''): Promise<FootageListItem[]> {
+export { FootageListItem };
+
+export default function getFootages(page: number = 1, per_page: number = 20, query: string = ''): Promise<FootageListItem[]> {
 	return Promise.all([
 		getPexelsFootages(page, per_page, query),
 		getPixabayFootages(page, per_page, query)
