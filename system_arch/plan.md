@@ -7,7 +7,9 @@
 4.1 Pixabay API playground - 1 h
 4.2 Pixabay FootageList request - 1 h
 5. 2 source Pexels? API interface
-5.1 Pexels API playground - 1.5 h 12:00 - 13:30 
+5.1 Pexels API playground - 1 h 12:00 - 13:00 
+5.2 Pexels FootageList request - 30 m
+5.3 GetFootages function - 
 6. FootageListItem Component
 7. FootageList Component
 8. FootageDetails Component
