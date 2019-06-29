@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
-    <FootageList />
-  </div>
+    <div class="home">
+        <FootageList />
+    </div>
 </template>
 
 <script lang="ts">
@@ -10,9 +10,9 @@ import { Component, Vue } from "vue-property-decorator";
 import FootageList from "@/components/FootageList.vue";
 
 @Component({
-  components: {
-    FootageList
-  }
+    components: {
+        FootageList
+    }
 })
 export default class Home extends Vue {}
 </script>
