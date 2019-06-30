@@ -7,30 +7,39 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import FootageListItemComponent from "@/components/FootageListItem.vue";
 
 import getFootages, { FootageListItem } from "@/requestAPIs/getFootageList";
+import { mapState } from "vuex";
 
 @Component({
     components: {
         "footage-list-item": FootageListItemComponent
-    }
+    },
+    computed: mapState({
+        search: "search_input"
+    })
 })
 export default class FootageList extends Vue {
-    // @Prop() private msg!: string;
-
     private footages: FootageListItem[] = [];
     private footagesLoaded: boolean = false;
+    private search!: string;
 
     mounted() {
         console.log("mounted");
-        getFootages().then(footages => (this.footages = footages));
+        getFootages(1, 20, this.search).then(
+            footages => (this.footages = footages)
+        );
+    }
+
+    @Watch("search")
+    private onSearch(search: string) {
+        getFootages(1, 20, search).then(footages => (this.footages = footages));
     }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .footage-list-cntr {
     /* height: 100%; */

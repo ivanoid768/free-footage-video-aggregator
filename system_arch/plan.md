@@ -12,4 +12,6 @@
 5.3 GetFootages function - 1.5 h 14:12 - 15:42
 6. FootageListItem Component - 18:20 - 20:10
 7. FootageList Component - done
+7.1 Add search feature - done 
+7.2 Pagination
 8. FootageDetails Component

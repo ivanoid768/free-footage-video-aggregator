@@ -1,11 +1,13 @@
 <template>
     <el-card class="footage-item">
         <div class="footage-name" slot="header">
-            <span class="footage-name">{{footage.name}}</span>
+            <span
+                class="footage-name">{{footage.name}}</span>
         </div>
         <video @mouseenter="onMouseEnter"
-            @mouseleave="onMouseLeave" class="footage-preview"
-            muted loop preload="metadata" :id="videoId"
+            @mouseleave="onMouseLeave"
+            class="footage-preview" muted loop
+            preload="metadata" :id="videoId"
             :src="footage.url"></video>
     </el-card>
 </template>
@@ -21,16 +23,17 @@ export default class FootageListItem extends Vue {
     private isPlay: boolean = false;
 
     private onMouseEnter(e: MouseEvent) {
-        e.target && e.target.play();
+        let target: any = e.target ? e.target : null;
+        target.play && target.play();
     }
 
     private onMouseLeave(e: MouseEvent) {
-        e.target && e.target.pause();
+        let target: any = e.target ? e.target : null;
+        target.play && target.pause();
     }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .footage-item {
     display: inline-block;
